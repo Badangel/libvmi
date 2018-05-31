@@ -234,6 +234,9 @@ pyvmi_init_complete(
     }
 
     object = PyObject_NEW(pyvmi_instance, &pyvmi_instance_Type);
+    mem(object)  = NULL;
+    desc(object) = NULL;
+    conf(object) = NULL;
 
     if (VMI_FAILURE == vmi_init_complete(&vmi(object),vmname,VMI_INIT_DOMAINNAME,NULL,VMI_CONFIG_GLOBAL_FILE_ENTRY,NULL,NULL))
     {
